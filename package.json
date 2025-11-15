@@ -1,0 +1,74 @@
+{
+  "name": "complexity-lens",
+  "displayName": "ComplexityLens - Python Complexity Analyzer",
+  "description": "AI-powered Python code complexity analysis",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters"
+  ],
+  "activationEvents": [
+    "onLanguage:python"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "complexity-lens.analyze",
+        "title": "Analyze Complexity with AI",
+        "category": "ComplexityLens"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "complexity-lens.analyze",
+        "key": "ctrl+shift+c",
+        "mac": "cmd+shift+c",
+        "when": "editorTextFocus && editorHasSelection && editorLangId == python"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "complexity-lens.analyze",
+          "when": "editorHasSelection && editorLangId == python",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "ComplexityLens",
+      "properties": {
+        "complexityLens.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Your Anthropic API key (get one at console.anthropic.com)",
+          "markdownDescription": "Your Anthropic API key. [Get one here](https://console.anthropic.com)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/node": "20.x",
+    "@types/node-fetch": "^2.6.2",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "eslint": "^8.47.0",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.12"
+  }
+}
