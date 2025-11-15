@@ -1,8 +1,10 @@
 {
-  "name": "complexity-lens",
+  "publisher": "HarshAkunuri",  
+  "name": "complexity-lens1",
   "displayName": "ComplexityLens - Python Complexity Analyzer",
   "description": "AI-powered Python code complexity analysis",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "icon": "ANGRYORCH.png",
   "engines": {
     "vscode": "^1.80.0"
   },
